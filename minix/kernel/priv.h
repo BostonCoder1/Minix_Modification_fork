@@ -17,7 +17,7 @@
 #include "kernel/const.h"
 #include "kernel/type.h"
 #include "kernel/ipc_filter.h"
-
+struct priv;
 struct priv {
   proc_nr_t s_proc_nr;		/* number of associated process */
   sys_id_t s_id;		/* index of this system structure */
@@ -79,7 +79,6 @@ struct priv {
 #define priv_addr(i)      (ppriv_addr)[(i)]
 #define priv_id(rp)	  ((rp)->p_priv->s_id)
 #define priv(rp)	  ((rp)->p_priv)
-
 #define id_to_nr(id)	priv_addr(id)->s_proc_nr
 #define nr_to_id(nr)    priv(proc_addr(nr))->s_id
 
